@@ -5,16 +5,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-import heig.labo2.Async.AsyncActivity;
-import heig.labo2.Object.ObjectActivity;
-import heig.labo2.StoreAndForward.StoreAndForwardActivity;
+import heig.labo2.async.AsyncActivity;
+import heig.labo2.compressed.CompressedActivity;
+import heig.labo2.object.ObjectActivity;
+import heig.labo2.store_and_forward.StoreAndForwardActivity;
 
 
 /**
  * Main Activity, used to launch the 4 specified activities
  *
  * @author Henrik Akesson
- * @author Fabien Salathe
  */
 public class Dashboard extends AppCompatActivity {
 
@@ -41,7 +41,8 @@ public class Dashboard extends AppCompatActivity {
         findViewById(R.id.compressedButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                System.out.println("Hello from compressedButton");
+                Intent intent = new Intent(Dashboard.this, CompressedActivity.class);
+                startActivity(intent);
             }
         });
         findViewById(R.id.objectButton).setOnClickListener(new View.OnClickListener() {

@@ -17,9 +17,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Async.AsyncActivity" />
-        <activity android:name=".StoreAndForward.StoreAndForwardActivity" />
-        <activity android:name=".Object.ObjectActivity"></activity>
+        <activity android:name=".async.AsyncActivity" />
+        <activity android:name=".store_and_forward.StoreAndForwardActivity" />
+        <activity android:name=".object.ObjectActivity" />
+        <activity android:name=".compressed.CompressedActivity"></activity>
     </application>
 
 </manifest>

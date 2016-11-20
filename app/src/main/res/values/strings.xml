@@ -4,4 +4,22 @@
     <string name="url_xml">http://sym.dutoit.email/rest/xml</string>
     <string name="url_json">http://sym.dutoit.email/rest/json</string>
     <string name="url_txt">http://sym.dutoit.email/rest/txt</string>
+    <string name="async_input">Enter text</string>
+    <string name="name">Enter name</string>
+    <string name="firstname">Enter first name</string>
+    <string name="middlename">Enter middle name</string>
+    <string name="compressedActivityName">Compressed</string>
+    <string name="asynchronousActivityName">Asynchronous</string>
+    <string name="objectActivityName">Object</string>
+    <string name="storeAndForwardActivityName">Store and Forward</string>
+    <string name="sendAsJson">Send as JSON</string>
+    <string name="sendAsXML">Send as XML</string>
+    <string name="jsonResponse">JSON Response</string>
+    <string name="xmlResponse">XML Response</string>
+    <string name="female">Female</string>
+    <string name="male">Male</string>
+    <string name="other">Other</string>
+    <string name="phone">Enter phone number</string>
+    <string name="response">Response</string>
+    <string name="send">Send</string>
 </resources>

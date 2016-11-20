@@ -1,4 +1,4 @@
-package heig.labo2.Object;
+package heig.labo2.object;
 
 import org.json.JSONObject;
 
@@ -15,7 +15,6 @@ import heig.labo2.utils.CommunicationEventListener;
  * Runnable class that sends JSON objects to the server
  * The object to send is given at creation
  * @author Henrik Akesson
- * @author Fabien Salathe
  */
 public class JSONObjectSender implements Runnable {
     private String url;

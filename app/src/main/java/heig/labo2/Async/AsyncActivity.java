@@ -1,4 +1,4 @@
-package heig.labo2.Async;
+package heig.labo2.async;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -6,9 +6,9 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import heig.labo2.utils.AsyncSendRequest;
 import heig.labo2.utils.CommunicationEventListener;
 import heig.labo2.R;
-
 
 /**
  * Activity associated to the asynchronous requests.
@@ -17,7 +17,6 @@ import heig.labo2.R;
  * updated the response text with server's response
  *
  * @author Henrik Akesson
- * @author Fabien Salathe
  */
 public class AsyncActivity extends AppCompatActivity {
     EditText requestText;
@@ -35,10 +34,16 @@ public class AsyncActivity extends AppCompatActivity {
             public void onClick(View v) {
                 CommunicationEventListener evl = new CommunicationEventListener() {
                     public boolean handleServerResponse(final String response) {
-                        responseText.setText(response);
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                responseText.setText(response);
+                            }
+                        });
                         return true;
                     }
                 };
+
                 AsyncSendRequest asyncSendRequest = new AsyncSendRequest(evl);
                 try {
                     asyncSendRequest.execute(requestText.getText().toString(), getString(R.string.url_txt));

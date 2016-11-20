@@ -11,7 +11,7 @@
     tools:context="heig.labo2.Dashboard">
 
     <Button
-        android:text="compressée"
+        android:text="@string/compressedActivityName"
         android:layout_width="wrap_content"
         android:layout_height="100dp"
         android:layout_alignParentTop="true"
@@ -22,7 +22,7 @@
         android:id="@+id/compressedButton" />
 
     <Button
-        android:text="Asynchrone"
+        android:text="@string/asynchronousActivityName"
         android:layout_width="wrap_content"
         android:layout_height="100dp"
         android:id="@+id/asyncButton"
@@ -33,7 +33,7 @@
         android:layout_marginStart="35dp" />
 
     <Button
-        android:text="Différée"
+        android:text="@string/storeAndForwardActivityName"
         android:layout_width="wrap_content"
         android:layout_height="100dp"
         android:layout_below="@+id/asyncButton"
@@ -45,7 +45,7 @@
         android:layout_alignEnd="@+id/asyncButton" />
 
     <Button
-        android:text="Objets"
+        android:text="@string/objectActivityName"
         android:layout_width="wrap_content"
         android:layout_height="100dp"
         android:layout_alignBottom="@+id/storeAndForwardButton"

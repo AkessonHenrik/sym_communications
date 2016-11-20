@@ -1,4 +1,4 @@
-package heig.labo2.Object;
+package heig.labo2.object;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -6,7 +6,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import org.json.JSONException;
@@ -20,7 +19,6 @@ import heig.labo2.R;
  * The same form is used for both object types, according to the given xml dtd
  *
  * @author Henrik Akesson
- * @author Fabien Salathe
  */
 public class ObjectActivity extends AppCompatActivity {
 
@@ -32,7 +30,6 @@ public class ObjectActivity extends AppCompatActivity {
 
     private TextView xmlResponse;
 
-    // Gender selection
     private RadioButton male, female;
 
     @Override
@@ -53,21 +50,17 @@ public class ObjectActivity extends AppCompatActivity {
         jsonResponse = (TextView) findViewById(R.id.jsonResponse);
         xmlResponse = (TextView) findViewById(R.id.xmlResponse);
 
-
+        // If clicked, a json post request is sent to the server
         JSONSendButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // We didn't use gson given the simple object that is sent
                 JSONObject jsonObject = new JSONObject();
                 try {
-                    // Name
                     jsonObject.put("name", name.getText().toString());
-                    // First name
                     jsonObject.put("firstname", firstName.getText().toString());
-                    // Middle name
                     jsonObject.put("middlename", middleName.getText().toString());
-                    // Gender
                     jsonObject.put("gender", getGenderChoice());
-                    // Phone
                     jsonObject.put("phone", phone.getText());
 
                 } catch (JSONException e) {
@@ -75,8 +68,13 @@ public class ObjectActivity extends AppCompatActivity {
                 }
                 CommunicationEventListener cel = new CommunicationEventListener() {
                     @Override
-                    public boolean handleServerResponse(String response) {
-                        jsonResponse.setText(response);
+                    public boolean handleServerResponse(final String response) {
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                jsonResponse.setText(response);
+                            }
+                        });
                         return true;
                     }
                 };
@@ -85,36 +83,35 @@ public class ObjectActivity extends AppCompatActivity {
             }
         });
 
+        // If clicked, a xml post request is sent to the server
         XMLSendButton.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
 
                         StringBuilder sb = new StringBuilder();
-                        // Constant Header
+
                         sb.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n");
                         sb.append("<!DOCTYPE directory SYSTEM \"http://sym.dutoit.email/directory.dtd\">");
                         sb.append("<directory>");
-
                         sb.append("<person>");
-                        // Name
                         sb.append("<name>" + name.getText() + "</name>");
-                        // First name
                         sb.append("<firstname>" + firstName.getText() + "</firstname>");
-                        // Middle name
                         sb.append("<middlename>" + middleName.getText() + "</middlename>");
-                        // Gender
                         sb.append("<gender>" + getGenderChoice() + "</gender>");
-                        //phone
                         sb.append("<phone type=" + "\"home\"" + ">" + phone.getText() + "</phone>");
-
                         sb.append("</person>");
                         sb.append("</directory>");
 
                         CommunicationEventListener cel = new CommunicationEventListener() {
                             @Override
-                            public boolean handleServerResponse(String response) {
-                                xmlResponse.setText(response);
+                            public boolean handleServerResponse(final String response) {
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        xmlResponse.setText(response);
+                                    }
+                                });
                                 return true;
                             }
                         };

@@ -8,10 +8,10 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="heig.labo2.Object.ObjectActivity">
+    tools:context="heig.labo2.object.ObjectActivity">
 
     <Button
-        android:text="Send as JSON"
+        android:text="@string/sendAsJson"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginRight="25dp"
@@ -24,7 +24,7 @@
         android:textSize="10sp" />
 
     <TextView
-        android:text="XML Response"
+        android:text="@string/xmlResponse"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/jsonResponse"
@@ -39,7 +39,7 @@
         android:inputType="textPersonName"
         android:ems="10"
         android:id="@+id/name"
-        android:hint="Enter name"
+        android:hint="@string/name"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:textSize="14sp" />
@@ -50,7 +50,7 @@
         android:inputType="textPersonName"
         android:ems="10"
         android:id="@+id/firstname"
-        android:hint="Enter first name"
+        android:hint="@string/firstname"
         android:layout_below="@+id/name"
         android:layout_alignLeft="@+id/name"
         android:layout_alignStart="@+id/name"
@@ -62,14 +62,14 @@
         android:inputType="textPersonName"
         android:ems="10"
         android:id="@+id/middlename"
-        android:hint="Enter middlename"
+        android:hint="@string/middlename"
         android:layout_below="@+id/firstname"
         android:layout_alignLeft="@+id/firstname"
         android:layout_alignStart="@+id/firstname"
         android:textSize="14sp" />
 
     <TextView
-        android:text="JSON Response"
+        android:text="@string/jsonResponse"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -77,36 +77,6 @@
         android:layout_below="@+id/jsonButton"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
-
-    <RadioGroup
-        android:id="@+id/gender"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/middlename"
-        android:layout_centerHorizontal="true">
-
-        <RadioButton
-            android:id="@+id/female"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Female"
-            android:textSize="12sp" />
-
-        <RadioButton
-            android:id="@+id/male"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Male"
-            android:textSize="12sp" />
-
-        <RadioButton
-            android:id="@+id/neither"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="I don't like labels"
-            android:textSize="12sp" />
-
-    </RadioGroup>
 
     <EditText
         android:layout_width="wrap_content"
@@ -116,11 +86,11 @@
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
         android:id="@+id/phone"
-        android:hint="Enter phone number"
+        android:hint="@string/phone"
         android:textSize="12sp" />
 
     <Button
-        android:text="Send as XML"
+        android:text="@string/sendAsXML"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/xmlButton"
@@ -128,4 +98,35 @@
         android:layout_below="@+id/phone"
         android:layout_toLeftOf="@+id/gender"
         android:layout_toStartOf="@+id/gender" />
+
+    <RadioGroup
+        android:id="@+id/gender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/middlename"
+        android:layout_alignRight="@+id/phone"
+        android:layout_alignEnd="@+id/phone">
+
+        <RadioButton
+            android:id="@+id/female"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/female"
+            android:textSize="12sp" />
+
+        <RadioButton
+            android:id="@+id/male"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/male"
+            android:textSize="12sp" />
+
+        <RadioButton
+            android:id="@+id/neither"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/other"
+            android:textSize="12sp" />
+
+    </RadioGroup>
 </RelativeLayout>
