@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Labo2</string>
+    <string name="title_activity_async">asyncActivity</string>
+    <string name="url_xml">http://sym.dutoit.email/rest/xml</string>
+    <string name="url_json">http://sym.dutoit.email/rest/json</string>
+    <string name="url_txt">http://sym.dutoit.email/rest/txt</string>
+</resources>
